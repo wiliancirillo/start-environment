@@ -24,21 +24,20 @@ Before starting, make sure you have Docker and Docker Compose installed on your 
    chmod +x start-environment.sh
    ```
 
-3. Edit the environment variables as needed in the `start-environment.sh` script. By default, the script uses your system username as the PostgreSQL user and sets the default email as `me@<your_user>.io`.
-
 ## Running the Environment
 
-To start all services defined in the `docker-compose.yml`, execute the script:
+To start the environment, execute the script:
 
 ```bash
 ./start-environment.sh
 ```
 
-This will start the containers in the background. You can check the status of the containers with the command:
+The script will guide you through the following steps:
+1. Confirm or change the PostgreSQL username.
+2. Set the project name (default is 'projects').
+3. Choose which services to include (PostgreSQL, pgAdmin, MailHog, Redis).
 
-```bash
-docker-compose ps
-```
+The script will generate a `docker-compose.yml` file based on your choices and start the selected containers.
 
 ## Included Services
 
@@ -108,3 +107,5 @@ docker-compose down
 # or
 docker-compose down -v # clears the volumes, for a complete removal of data
 ```
+
+This script helps you set up and tear down a local development environment efficiently, providing a customizable and interactive way to manage your development services.
